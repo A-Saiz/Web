@@ -1,5 +1,5 @@
 .home {
-    height: 1086px;
+    height: 1250px;
     position: relative;
     top: -22px;
     width: 100%;
@@ -7,8 +7,8 @@
 
 .out-of-box-image {
     position: absolute;
-    /*TODO: Abel Fix position*/
-    margin: 200px 0 0 950px;
+    top: 24%;
+    left: 49.5%;
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     -o-transform: scaleX(-1);
@@ -19,16 +19,57 @@
 
 .rectangle-image {
     transform: rotate(25deg);
-    margin: 76px 0 0 110px;
+    top: 7%;
+    left: 5.5%;
     position: absolute;
 }
 
 .rectangle {
 	box-sizing: border-box;
-	height: 1086px;
+	height: inherit;
     width: 641px;
     float: right;
     border: none;
     background-image: linear-gradient(to top, white, #52839B 20%);
-	
+}
+
+.large-circle-image {
+    position: absolute;
+    top: 10%;
+    left: 74%;
+}
+
+.small-circle-image {
+    position: absolute;
+    top: 54%;
+    left: 30%;
+}
+
+.caption-section {
+    top: 32%;
+    left: 8%;
+    position: absolute;
+}
+
+.caption-section a {
+    color: #52839B;
+    font-size: 28px;
+    text-decoration: none;
+    margin: 0;
+}
+
+.caption-section h1 {
+    font-size: 56px;
+    margin: 0;
+}
+
+.caption-section h3 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.caption-section p {
+    font-size: 28px;
+    color: #868587;
+    font-family: "Helvetica Neue";
 }

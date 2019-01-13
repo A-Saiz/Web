@@ -5,6 +5,7 @@
     list-style-type: none;
     margin-right: 45px;
     align-items: center;
+    cursor: pointer;
 }
 
 .menu-items {

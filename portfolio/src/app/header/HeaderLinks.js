@@ -7,7 +7,7 @@ const HeaderLinks = () => (
     <div className="header-links">
         <ul className="items">
             <li className="item">
-                <a href="https://github.com/A-Saiz"><img src={GitHubLogo} alt="Github"></img></a>
+                <a href="https://github.com/A-Saiz" target="blank"><img src={GitHubLogo} alt="Github"></img></a>
             </li>
         </ul>
     </div>
