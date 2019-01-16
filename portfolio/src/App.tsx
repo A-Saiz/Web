@@ -1,14 +1,13 @@
 import './App.css';
-import React, {Component} from 'react';
+import * as React from 'react';
 import Section from './app/Section';
-import HomeSection from '../src/app/sections/HomeSection';
-import MyWorkSection from '../src/app/sections/MyWorkSection';
-import AboutSection from '../src/app/sections/AboutSection';
-import ContactSection from '../src/app/sections/ContactSection';
+import HomeSection from './app/sections/HomeSection';
+import MyWorkSection from './app/sections/MyWorkSection';
+import AboutSection from './app/sections/AboutSection';
+import ContactSection from './app/sections/ContactSection';
 
-class App extends Component {
+export default class App extends React.Component {
   render() {
-    //Easily add sections
     return (
       <div className="App">
         <Section
@@ -25,11 +24,9 @@ class App extends Component {
         <AboutSection />
         <Section
         title="Contact"
-        id="myWorkSection" />
+        id="contactSection" />
         <ContactSection />
       </div>
     )
   }
 }
-
-export default App;

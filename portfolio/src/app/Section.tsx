@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import './Section.css';
 
-export default function Section({title, id}) {
+export default function Section( {title, id} : {title: any, id: any}) {
     return (
         <div className="section">
             <div className="section-content" id={id}>
