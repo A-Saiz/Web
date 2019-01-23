@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './styles/AboutSection.css';
+import './styles/AboutSection.scss';
 
 export default class AboutSection extends React.Component {
     render() {

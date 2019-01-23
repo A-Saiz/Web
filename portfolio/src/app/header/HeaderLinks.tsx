@@ -1,5 +1,5 @@
-import React from 'react';
-import './styles/HeaderLinks.css';
+import * as React from 'react';
+import './styles/HeaderLinks.scss';
 
 import GitHubLogo from '../Images/github-icon.svg';
 

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import '../sections/styles/HomeSection.css';
+import './styles/HomeSection.scss';
 import Menu from '../header/Menu';
 import HeaderLinks from '../header/HeaderLinks';
-
-import LargeCircleIcon from '../Images/large-circle.svg';
-import SmallCircleIcon from '../Images/small-circle.svg';
 import RectangleIcon from '../Images/rectangle.svg';
 import ManInBoxIcon from '../Images/out-of-the-box.svg';
+import LargeCircleIcon from '../Images/large-circle.svg';
+import SmallCircleIcon from '../Images/small-circle.svg';
 
 export default class HomeSection extends React.Component {
   render() {
@@ -14,6 +13,8 @@ export default class HomeSection extends React.Component {
       <div className="home">
         <Menu />
         <HeaderLinks />
+        {/* TODO: Abel Add images to logic to render in different screen sizes 
+        So there is only one img tag rendered*/}
         <img className="rectangle-image" src={RectangleIcon} alt="rectangle"/>
         <img className="small-circle-image" src={SmallCircleIcon} alt="small rectangle"/>
         <img className="large-circle-image" src={LargeCircleIcon} alt="large rectangle"/>

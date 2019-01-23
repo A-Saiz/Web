@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 //import ScrollImage from '../Images/scroll-icon.svg';
-import { Link, animateScroll as scroll } from 'react-scroll';
-import '../header/styles/Menu.css';
+import { Link, animateScroll as scroll } from "react-scroll";
+import '../header/styles/Menu.scss';
 
-export default class Menu extends Component {
+export default class Menu extends React.Component {
     // scrollToTop = () => {
     //     scroll.scrollToTop();
     // };

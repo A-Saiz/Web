@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './styles/ContactSection.css';
+import './styles/ContactSection.scss';
 
 export default class ContactSection extends React.Component {
   render() {
