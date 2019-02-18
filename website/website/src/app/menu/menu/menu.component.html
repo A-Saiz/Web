@@ -1,7 +1,11 @@
-<div class="menu_container">
+<div class="menu-container">
   <ul class="menu-items">
-    <li class="item" *ngFor="let menuItem of menuItems">
-      {{menuItem.stringValue}}
+    <li *ngFor="let menuItem of menuItems">
+      <a class="item">{{menuItem.stringValue}}</a>
+    </li>
+    <li class="link">
+        <a href="https://github.com/A-Saiz" target="blank"><img src="../../../../src/app/assets/images/github-icon.svg" alt="Github"/></a>
     </li>
   </ul>
+  <router-outlet></router-outlet>
 </div>

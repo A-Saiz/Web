@@ -4,8 +4,8 @@ import MenuService from 'src/services/menu-service.service';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  templateUrl: 'menu.component.html',
+  styleUrls: ['menu.component.scss']
 })
 export default class MenuComponent implements OnInit {
 

@@ -18,10 +18,7 @@ namespace PortfolioServices.Controllers
         private PortfolioCoreBaseEntities db = new PortfolioCoreBaseEntities();
 
         // GET: api/Links
-        public IQueryable<Link> GetLinks()
-        {
-            return db.Links;
-        }
+        public IQueryable<Link> GetLinks() => db.Links;
 
         // GET: api/Links/5
         [ResponseType(typeof(Link))]

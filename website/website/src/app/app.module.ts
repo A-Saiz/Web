@@ -1,3 +1,4 @@
+import { RoutingModule } from './routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
@@ -22,7 +23,8 @@ import MenuService from "../services/menu-service.service";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]
