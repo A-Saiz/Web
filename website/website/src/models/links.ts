@@ -1,5 +1,5 @@
 export default class Links {
-    LinkId: number;
-    Name: string;
-    LinkUrl: string;
+    id: number;
+    name: string;
+    linkUrl: string;
 }

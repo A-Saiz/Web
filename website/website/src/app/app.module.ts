@@ -4,11 +4,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import HomeComponent from './home/home/home.component';
-import { AboutComponent } from './About/about/about.component';
-import { ContactComponent } from './contact/contact/contact.component';
-import MenuComponent from './menu/menu/menu.component';
-import { ProjectsComponent } from './projects/projects/projects.component';
+import HomeComponent from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import MenuComponent from './components/menu/menu.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { FooterComponent } from "./components/footer/footer.component";
 
 import MenuService from "../services/menu-service.service";
 
@@ -19,7 +20,8 @@ import MenuService from "../services/menu-service.service";
     AboutComponent,
     ContactComponent,
     MenuComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
