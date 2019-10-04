@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import AboutPageImages from 'src/models/aboutPageImages';
+import { AboutPageImagesService } from 'src/services/about-page-images.service';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  aboutPageImages: Array<AboutPageImages>;
+
+  constructor(private aboutPageImageService: AboutPageImagesService) { }
 
   ngOnInit() {
   }

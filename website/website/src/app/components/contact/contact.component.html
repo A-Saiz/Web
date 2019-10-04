@@ -1,3 +1,37 @@
-<div>
-  <h1>Contact me</h1>
+<div class="contact-container" id="#contact-section">
+    <div>
+      <h1>Contact Me</h1>
+    </div>
+  <form class="contact" (ngSubmit)="processForm()">
+    <div class="name-input">
+      <p> To: saiz7555@gmail</p>
+    </div>
+    <div class="email-input">
+      From:
+      <input type="email" 
+             name="email" 
+             class="input"
+              placeholder="Email" 
+              [(ngModel)]="email"
+              required 
+              email
+              #emailInput="ngModel"/>
+    </div>
+    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+      Please enter a valid email.
+    </div>
+    <div class="message-input">
+      <textarea class="textarea" 
+                name="message" 
+                placeholder="What you talking about Willis" 
+                [(ngModel)]="message"
+                required
+                #messageInput="ngModel">
+      </textarea>
+    </div>
+    <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+      Please enter a message so I can respond with an answer.
+    </div>
+    <button type="submit" class="button is-danger is-large">Submit</button>
+  </form>
 </div>

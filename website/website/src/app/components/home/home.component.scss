@@ -1,44 +1,113 @@
 @import '../../styles/variables.scss';
-
-.box-logo {
-    margin: 225px 0 0 780px;
-    top: 27%;
-
-    transform: scaleX(-1);
-    -moz-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-
-    -ms-filter: fliph; /*IE*/
-    filter: fliph; /*IE*/
-}
+@import '../../styles/mixins.scss';
 
 .caption-section {
     font-family: $app-font-family;
     left: 6%;
     position: absolute;
-    top: 40%;
+
+    @include small-device {
+        top: 25%;
+    }
+
+    @include medium-device {
+        top: 29%;
+    }
+
+    @include large-device {
+        top: 30%;
+    }
+
+    @include xlarge-device {
+        top: 30%;
+    }
 
     a {
         color: #52839B;
-        font-size: 28px;
         margin: 0;
         text-decoration: none;
+
+        @include small-device {
+            font-size: 22px;
+        }
+
+        @include medium-device {
+            font-size: 22px;
+        }
+
+        @include large-device {
+            font-size: 25px;
+        }
+
+        @include xlarge-device {
+            font-size: 26px;
+        }
     }
     
     h1 {
-        font-size: 50px;
         margin: 0;
+
+        @include small-device {
+            font-size: 25px;
+        }
+
+        @include medium-device {
+            font-size: 32px;
+        }
+
+        @include large-device {
+            font-size: 40px;
+        }
+
+        @include xlarge-device {
+            font-size: 40px;
+        }
     }
     
     h3 {
-        font-size: 38px;
         margin: 0;
+
+        @include small-device {
+            font-size: 20px;
+        }
+
+        @include medium-device {
+            font-size: 22px;
+        }
+
+        @include large-device {
+            font-size: 26px;
+        }
+
+        @include xlarge-device {
+            font-size: 28px;
+        }
     }
     
     p {
-        font-size: 28px;
         color: #868587;
+
+        @include small-device {
+            font-size: 16px;
+        }
+
+        @include medium-device {
+            font-size: 19px;
+        }
+
+        @include large-device {
+            font-size: 22px;
+        }
+
+        @include xlarge-device {
+            font-size: 22px;
+        }
+    }
+}
+
+.caption-section a:hover {
+    @include large-device {
+        font-size: 24px;
     }
 }
 
@@ -49,26 +118,144 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 640px;
     z-index: -1;
+
+    @include small-device {
+        display: none;
+    }
+
+    @include medium-device {
+        width: 38%;
+    }
+
+    @include large-device {
+        width: 33%;
+    }
+
+    @include xlarge-device {
+        width: 40%;
+    }
 }
 
-.rectangle-logo {
-    left: 6%;
-    position: absolute;
-    top: 12%;
+#rectangle-logo-img {
+    left: 45%;
+    position: relative;
     transform: rotate(25deg);
+
+    @include small-device {
+        max-width: 40%;
+        height: auto;
+        left: 25%;
+    }
+
+    @include medium-device {
+        width: 50%;
+        height: auto;
+        left: 35%;
+    }
+
+    @include large-device {
+        width: 50%;
+        height: auto;
+    }
+
+    @include xlarge-device {
+        width: 52%;
+        height: auto;
+    }
 }
 
-.small-circle-logo {
-    left: 30%;
+#small-circle-img {
     position: absolute;
-    top: 70%;
+    right: 50%;
+
+    @include small-device {
+        display: none;
+    }
+
+    @include medium-device {
+        top: 55%;
+        height: 12%;
+        right: 55%;
+    }
+
+    @include large-device {
+        height: auto;
+        width: 10%;
+        top: 60%;
+    }
+
+    @include xlarge-device {
+        width: 9%;
+        right: 58%;
+        top: 60%;
+    }
 }
 
-.large-circle-logo {
-    left: 74%;
+#large-circle-img {
     position: absolute;
-    top: 8%;
     z-index: 1;
+
+    @include small-device {
+        display: none;
+    }
+
+    @include medium-device {
+        width: 24%;
+        right: 5%;
+        top: 11%;
+    }
+
+    @include large-device {
+        height: auto;
+        top: 10%;
+        width: 23%;
+        right: 3%;
+    }
+
+    @include xlarge-device {
+        top: 10%;
+        right: 3%;
+        width: 22%;
+    }
+}
+
+#box-img {
+    position: absolute;
+    bottom: 1%;
+
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+
+    -ms-filter: fliph; /*IE*/
+    filter: fliph; /*IE*/
+
+    @include small-device {
+        right: 0%;
+        width: 53%;
+        height: auto;
+    }
+
+    @include medium-device {
+        max-width: 35%;
+        right: 21%;
+    }
+
+    @include large-device {
+        height: auto;
+        width: 30%;
+        right: 18%;
+    }
+
+    @include xlarge-device {
+        height: auto;
+        width: 30%;
+        right: 25%;
+    }
+}
+
+.home {
+    @include home-container
 }

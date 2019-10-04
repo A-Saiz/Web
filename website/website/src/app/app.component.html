@@ -1,15 +1,24 @@
 <div>
-  <div class="app-menu">   
+  <div class="app-menu">
     <app-menu></app-menu>
+    <a href="#" id="return-to-top" *ngIf="showScrollButton">
+      <i class="up-chevron"></i>
+    </a>
   </div>
-  <div class="app-home">
+  <div id="#home">
     <app-home></app-home>
   </div>
   <div class="sections">
-    <app-projects></app-projects>
-    <app-about></app-about>
-    <app-contact></app-contact>
+    <section id="#projects">
+      <app-projects></app-projects>
+    </section>
+    <section id="#about">
+      <app-about></app-about>
+    </section>
+    <section id="#contact">
+      <app-contact></app-contact>
+    </section>
   </div>
   <app-footer></app-footer>
+  <app-modal></app-modal>
 </div>
-

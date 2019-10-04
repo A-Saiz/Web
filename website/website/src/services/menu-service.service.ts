@@ -7,9 +7,9 @@ import MenuItems from 'src/models/menuItems';
 @Injectable({
   providedIn: 'root',
 })
-export default class MenuService {
+export class MenuService {
 
-  baseUrl = environment.devApiUrl;
+  baseUrl = environment.baseUrl;
   public MENU_API = `${this.baseUrl}/menuitems`;
 
   constructor(private http: HttpClient) { }
@@ -25,7 +25,7 @@ export default class MenuService {
    * Gets menu item by id
    * @param id menuId
    */
-  get(id: string) {
+  get(id: number) {
     return this.http.get(`${this.MENU_API}/${id}`);
   }
 }

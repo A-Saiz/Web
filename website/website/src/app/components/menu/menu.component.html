@@ -1,11 +1,15 @@
-<div class="menu-container">
+<div class="menu-container" *ngIf="menuItems; else loading">
   <ul class="menu-items">
-    <li *ngFor="let menuItem of menuItems">
+    <li [ngClass]="{'active': selectedItem == menuItem}" 
+        *ngFor="let menuItem of menuItems" 
+        (click)="itemClick(menuItem.stringValue)">
       <a class="item">{{menuItem.stringValue}}</a>
     </li>
     <li class="link">
-        <a href="https://github.com/A-Saiz" target="blank"><img src="../../../../src/app/assets/images/github-icon.svg" alt="Github"/></a>
+        <a href="https://github.com/A-Saiz" target="blank">
+          <img src="assets/github-icon.svg" alt="Github"/>
+        </a>
     </li>
   </ul>
-  <router-outlet></router-outlet>
 </div>
+<ng-template #loading>Loading Menu...</ng-template>

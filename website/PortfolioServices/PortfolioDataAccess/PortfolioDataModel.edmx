@@ -5,6 +5,24 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PortfolioCoreBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutPageImages">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="imageUrl" Type="varbinary(max)" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="HereSettings">
+          <Key>
+            <PropertyRef Name="SettingsId" />
+          </Key>
+          <Property Name="SettingsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StringValue" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Links">
           <Key>
             <PropertyRef Name="LinkId" />
@@ -22,6 +40,8 @@
           <Property Name="Description" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="PortfolioCoreBaseModelStoreContainer">
+          <EntitySet Name="AboutPageImages" EntityType="Self.AboutPageImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HereSettings" EntityType="Self.HereSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuItem" EntityType="Self.MenuItem" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -48,7 +68,27 @@
         <EntityContainer Name="PortfolioCoreBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Links" EntityType="Self.Link" />
           <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
+          <EntitySet Name="AboutPageImages" EntityType="PortfolioCoreBaseModel.AboutPageImage" />
+          <EntitySet Name="HereSettings" EntityType="PortfolioCoreBaseModel.HereSetting" />
         </EntityContainer>
+        <EntityType Name="AboutPageImage">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imageUrl" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HereSetting">
+          <Key>
+            <PropertyRef Name="SettingsId" />
+          </Key>
+          <Property Name="SettingsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StringValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -70,6 +110,26 @@
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="StringValue" ColumnName="StringValue" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutPageImages">
+            <EntityTypeMapping TypeName="PortfolioCoreBaseModel.AboutPageImage">
+              <MappingFragment StoreEntitySet="AboutPageImages">
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HereSettings">
+            <EntityTypeMapping TypeName="PortfolioCoreBaseModel.HereSetting">
+              <MappingFragment StoreEntitySet="HereSettings">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+                <ScalarProperty Name="SettingsId" ColumnName="SettingsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

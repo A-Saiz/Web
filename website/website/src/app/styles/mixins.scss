@@ -1,0 +1,69 @@
+//Common breakpoints
+//xlarge-device = @media all and (min-width:1200px){ ... }
+//large-device = @media all and (min-width: 960px) and (max-width: 1199px) { ... }
+//medium-device = @media all and (min-width: 768px) and (max-width: 959px) { ... }
+//small-device = @media all and (min-width: 480px) and (max-width: 767px){ ... }
+//xsmall-device = @media all and (max-width: 599px) { ... }
+//xxsmall-device = @media all and (max-width: 479px) { ... }
+
+@mixin xxsmall-device {
+    @media only screen and (max-width: 559px) {
+        @content;
+    }
+}
+
+@mixin xsmall-device {
+    @media only screen and (max-width: 479px) {
+        @content;
+    }
+}
+
+@mixin small-device {
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin medium-device {
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @content;
+    }
+}
+
+@mixin large-device {
+    @media only screen and (min-width: 960px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin xlarge-device {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin home-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+@mixin section-container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+@mixin section-header {
+    border-bottom: 1px solid darkgray;
+    display: block;
+    font-size: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 90%; 
+}
+
+@mixin link-hover-size {
+    height: 51px;
+    width: 51px;
+}

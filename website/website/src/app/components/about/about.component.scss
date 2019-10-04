@@ -1,13 +1,9 @@
-div {
-    width: 100%;
-    height: 1300px;
-}
+@import '../../styles/mixins.scss';
 
-h1 {
-    border-bottom: 1px solid darkgray;
-    display: block;
-    font-size: 50px;
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 90%;
+.about-container {
+    @include section-container;
+
+    h1 {
+        @include section-header;
+    }
 }

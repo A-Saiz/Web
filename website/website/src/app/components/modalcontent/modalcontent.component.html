@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4>
+    <ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader">
+    </ng-container>
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>
+    <ng-container *ngTemplateOutlet="bodyTemplate ? bodyTemplate : defaultBody">
+    </ng-container>
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+
+<ng-template #defaultHeader>Hey There!
+</ng-template>
+<ng-template #defaultBody>
+  Thank you for stopping by!<br><br>
+  Knowing your location is for apps that are used on this site.<br><br>
+  After leaving this site connection to your location will be terminated.<br><br>
+  Hope you enjoy, and have a great day.
+</ng-template>

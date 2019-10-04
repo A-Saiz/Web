@@ -7,6 +7,8 @@
       <Diagram DiagramId="3dc8159725f646758266bd393a4f4fe8" Name="Diagram1">
         <EntityTypeShape EntityType="PortfolioCoreBaseModel.Link" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PortfolioCoreBaseModel.MenuItem" Width="1.5" PointX="2.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.AboutPageImage" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.HereSetting" Width="1.5" PointX="3.375" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

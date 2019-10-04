@@ -6,9 +6,7 @@ import { LinkService } from 'src/services/link.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export default class HomeComponent implements OnInit {
-
-  
+export class HomeComponent implements OnInit {
 
   constructor(private linkService: LinkService) { }
 

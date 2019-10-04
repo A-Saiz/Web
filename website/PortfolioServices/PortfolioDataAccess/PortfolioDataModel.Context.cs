@@ -27,5 +27,7 @@ namespace PortfolioDataAccess
     
         public virtual DbSet<Link> Links { get; set; }
         public virtual DbSet<MenuItem> MenuItems { get; set; }
+        public virtual DbSet<AboutPageImage> AboutPageImages { get; set; }
+        public virtual DbSet<HereSetting> HereSettings { get; set; }
     }
 }
