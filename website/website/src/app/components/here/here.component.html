@@ -1,1 +1,15 @@
-<div id="map-container" class="map"></div>
+<div>
+    <div class="button-container">
+        <button (click)="confirmButton()" id="btn">{{buttonName}}</button>
+    </div>
+<ng-container>
+    <div *ngIf="show; else noShow" id="map-container" class="map"></div>
+</ng-container>
+</div>
+
+<ng-template #noShow>
+    <div class="map">
+        <p class="altMapText">Click button to track position</p>
+    </div>
+</ng-template>
+

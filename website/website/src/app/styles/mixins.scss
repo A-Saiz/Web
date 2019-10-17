@@ -50,6 +50,7 @@
 
 @mixin section-container {
     height: 100vh;
+    display: inline;
     width: 100%;
     overflow: hidden;
 }

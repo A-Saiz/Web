@@ -1,28 +1,25 @@
-import { Component, AfterViewInit, Input, TemplateRef, OnInit } from '@angular/core';
-import { NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
-import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
+import { Component } from '@angular/core';
+import { ModalOptions } from 'src/interfaces/modal-options';
+import { ModalSate } from 'src/services/modal.service';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements AfterViewInit {
+export class ModalComponent {
 
-  constructor(private modalService: NgbModal) { }
+  options: ModalOptions;
 
-  ngAfterViewInit() {
-    this.open();
-  }
+  constructor(private state: ModalSate) {
+    this.options = state.options;
+   }
 
-  open() {
-    let modalOptions: NgbModalOptions = {
-      backdrop: 'static',
-      keyboard: false,
-      scrollable: false,
-      centered: true
-    };
-    this.modalService.open(ModalcontentComponent, modalOptions);
-  }
+   yes() {
+     this.state.modal.close('confirmed');
+   }
 
+   close() {
+     this.state.modal.dismiss('not confirmed');
+   }
 }

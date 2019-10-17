@@ -18,21 +18,64 @@
     }
 }
 
+#project-row {
+    max-width: 920px;
+    margin: 32px auto;
+}
+
+hr {
+    border: none;
+    background: #dbdbdb;
+    height: 1px;
+}
+
 .here-geocoords-app-container {
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-
-    .geocoords-app {
-        max-width: 50%;
-    }
-
-    .text-container {
-        padding-right: 15%;
-
-        .text-body {
-            margin: 14px 0 0;
-        }
-    }
 }
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.news-app-container {
+    width: 35vw;
+    max-width: 90% !important;
+    height: 84vh;
+    position: relative;
+    margin-right: 15px;
+    margin-left: 20px;
+}
+
+.text-container {
+    max-width: 50%;
+}
+
+.text-block {
+    padding-right: 15%;
+}
+
+.text-headline {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1976d2;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.text-body {
+    margin: 14px 0 0;
+    //put these in seperate mixin
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    letter-spacing: .03rem;
+    font-weight: 400;
+    color: #444;
+}
+        
+    

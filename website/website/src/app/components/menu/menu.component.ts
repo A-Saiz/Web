@@ -3,6 +3,7 @@ import { DOCUMENT } from "@angular/common";
 import MenuItems from 'src/models/menuItems';
 import { MenuService } from 'src/services/menu-service.service';
 import { PageScrollService } from "ngx-page-scroll-core";
+import { ModalService } from 'src/services/modal.service';
 
 @Component({
   selector: 'app-menu',
@@ -22,8 +23,9 @@ export class MenuComponent implements OnInit {
   selectedItem: string;
 
   constructor(private menuService: MenuService,
-              private pageScrollServce: PageScrollService,
-              @Inject(DOCUMENT) private document: any) { }
+              private pageScrollService: PageScrollService,
+              @Inject(DOCUMENT) private document: any,
+              private modalService: ModalService) { }
 
   ngOnInit() {
     this.menuService.getAllMenuItems().subscribe(data => {
@@ -40,30 +42,36 @@ export class MenuComponent implements OnInit {
 
     switch (this.selectedItem) {
       case "Home":
-        this.pageScrollServce.scroll({
+        this.pageScrollService.scroll({
           document: this.document,
           scrollTarget: '.home'
         });
         break;
       case "My work":
-        this.pageScrollServce.scroll({
+        this.pageScrollService.scroll({
           document: this.document,
           scrollTarget: '.projects-container'
         });
         break;
       case "About":
-        this.pageScrollServce.scroll({
+        this.pageScrollService.scroll({
           document: this.document,
           scrollTarget: '.about-container'
         });
         break;
       case "Contact":
-        this.pageScrollServce.scroll({
+        this.pageScrollService.scroll({
           document: this.document,
           scrollTarget: '.contact-container'
         });
         break;
       default:
+        this.modalService.confirm({
+          image: 'assets/error.png',
+          title: 'Ooh no',
+          message: 'Sorry, something went wrong with the scroll button, but you can still manually scroll.',
+          yesButtonText: 'Okie Dokie'
+        });
         break;
     }
   }
