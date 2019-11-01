@@ -19,8 +19,21 @@
 }
 
 #project-row {
-    max-width: 920px;
+    max-width: 90%;
     margin: 32px auto;
+    box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.2), -30px 0px 40px rgba(0, 0, 0, 0.2);
+
+    @include xsmall-device {
+        text-align: center;
+        text-align: -webkit-center;
+        padding-bottom: 5vh;
+    }
+
+    @include small-device {
+        text-align: center;
+        text-align: -webkit-center;
+        padding-bottom: 5vh;
+    }
 }
 
 hr {
@@ -30,34 +43,57 @@ hr {
 }
 
 .here-geocoords-app-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+
+    @include large-device {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
 }
 
 .news-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    @include large-device {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
 }
 
 .news-app-container {
-    width: 35vw;
-    max-width: 90% !important;
-    height: 84vh;
     position: relative;
-    margin-right: 15px;
-    margin-left: 20px;
+    height: 90vh;
+
+    @include large-device {
+        width: 35vw;
+        margin-right: 15px;
+        margin-left: 20px;
+    }
+
+    @include xsmall-device {
+        max-width: 90% !important;
+    }
 }
 
 .text-container {
-    max-width: 50%;
+    @include large-device {
+        max-width: 50%;
+    }
+
+    @include xsmall-device {
+        max-width: 90%;
+    }
 }
 
 .text-block {
-    padding-right: 15%;
+    @include large-device {
+        padding-right: 15%;
+    }
+
+    @include xsmall-device {
+        padding-right: 0;
+    }
 }
 
 .text-headline {
@@ -76,6 +112,27 @@ hr {
     letter-spacing: .03rem;
     font-weight: 400;
     color: #444;
+}
+
+@keyframes text-pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+#more-to-come-container {
+    h2 {
+        animation: text-pulse 3s infinite;
+        text-align: center;
+        color: mediumslateblue;
+        padding-bottom: 3rem;
+    }
 }
         
     

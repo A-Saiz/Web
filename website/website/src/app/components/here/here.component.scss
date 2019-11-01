@@ -1,24 +1,47 @@
+@import '../../styles/mixins.scss';
+
 .button-container {
   padding: 10px 10px 10px 10px;
-  #btn {
-    margin-left: 10px;
-    border-radius: 2px;
-    border: .5px solid darkgray !important;
+  .track-button {
+    border: none;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left, rgba(0,0,0,.2), rgba(0,0,0,.2) 30%, rgba(0,0,0,0));
+    box-shadow: inset 2px 2px 3px rgba(255,255,255,6), inset -2px -2px 3px rgba(0,0,0,.6);
   }
-  #btn:hover {
-    box-shadow: 2px 3px 5px gray;
+  .track-button:hover {
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,8), inset -2px -2px 5px rgba(0,0,0,1);
+  }
+  .track-button:focus {
+    outline: none;
   }
 }
 
 .map {
-    width: 35vw;
+  height: 50vh;
+  position: relative;
+  border: 1px solid lightskyblue;
+  border-radius: 10px;
+  
+  @include xsmall-device {
     max-width: 90% !important;
-    height: 50vh;
-    position: relative;
-    border: 1px solid lightskyblue;
-    border-radius: 10px;
+  }
+  
+  @include large-device {
+    width: 35vw;
     margin-right: 15px;
     margin-left: 20px;
+  }
+
+  @include small-device {
+    max-width: 90% !important;
+  }
 }
 
 .altMapText {

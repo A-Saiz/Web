@@ -22,11 +22,23 @@ export class NewsApiService {
     return this.http.get(`${this.newsArticleUrl}${this.api_key}`);
   }
 
+  initSourcesLanguage() {
+    return this.http.get(`https://newsapi.org/v2/sources?apiKey=${this.api_key}`)
+  }
+
   getArticlesById(source: string) {
     return this.http.get(`${this.articlesByIdUrl}?sources=${source}&apiKey=${this.api_key}`);
   }
 
-  getArticlesByLanguage(language: string) {
-    return this.http.get(`https://newsapi.org/v2/sources?language=${language}&${this.api_key}`);
+  getArticlesByLanguage(languageAbr: string) {
+    return this.http.get(`${this.articlesByIdUrl}?language=${languageAbr}&apiKey=${this.api_key}`);
+  }
+
+  getArticlesByCountry (countryAbr: string) {
+    return this.http.get(`${this.articlesByIdUrl}?country=${countryAbr}&apiKey=${this.api_key}`)
+  }
+
+  getArticlesByCategory (category: string) {
+    return this.http.get(`${this.articlesByIdUrl}?category=${category}&apiKey=${this.api_key}`)
   }
 }

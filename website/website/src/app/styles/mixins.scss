@@ -7,13 +7,13 @@
 //xxsmall-device = @media all and (max-width: 479px) { ... }
 
 @mixin xxsmall-device {
-    @media only screen and (max-width: 559px) {
+    @media only screen and (max-width: 479px) {
         @content;
     }
 }
 
 @mixin xsmall-device {
-    @media only screen and (max-width: 479px) {
+    @media only screen and (max-width: 559px) {
         @content;
     }
 }

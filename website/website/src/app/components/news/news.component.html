@@ -5,16 +5,24 @@
     </button>
     <span>News Headlines</span>
     <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="appMenu">
+    <button mat-button [matMenuTriggerFor]="appMenu" title="Settings">
         <mat-icon>settings</mat-icon>
     </button>
 </mat-toolbar>
 <mat-menu #appMenu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="langMenu"> Settings </button>
+    <button mat-menu-item [matMenuTriggerFor]="langMenu"> Language </button>
+    <button mat-menu-item [matMenuTriggerFor]="countryMenu"> Country </button>
+    <button mat-menu-item [matMenuTriggerFor]="categoryMenu"> Sub Category </button>
     <button mat-menu-item> Help </button>
 </mat-menu>
 <mat-menu #langMenu="matMenu">
-    <button mat-menu-item *ngFor="let source of mSource" (click)="searchArticlesByLang(source.language);">{{source.language}}</button>
+    <button mat-menu-item *ngFor="let l of language | keyvalue" (click)="searchArticlesByLang(l.value);">{{l.key}}</button>
+</mat-menu>
+<mat-menu #countryMenu="matMenu">
+    <button mat-menu-item *ngFor="let c of country | keyvalue" (click)="searchArticlesByCountry(c.value);">{{c.key}}</button>
+</mat-menu>
+<mat-menu #categoryMenu="matMenu">
+    <button mat-menu-item *ngFor="let cat of category | keyvalue" (click)="searchArticlesByCategory(cat.value);">{{cat.key}}</button>
 </mat-menu>
 <mat-sidenav-container class="sidenav-container">
 

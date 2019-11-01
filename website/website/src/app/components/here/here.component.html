@@ -1,6 +1,6 @@
 <div>
     <div class="button-container">
-        <button (click)="confirmButton()" id="btn">{{buttonName}}</button>
+        <input class="track-button" type="button" value="{{buttonName}}" (click)="confirmButton()">
     </div>
 <ng-container>
     <div *ngIf="show; else noShow" id="map-container" class="map"></div>

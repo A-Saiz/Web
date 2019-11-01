@@ -50,7 +50,6 @@ export class HereComponent implements OnInit {
           this.modalService.confirm({
             title: 'Confirm to see Here map',
             message: 'You can enable tracking at any time',
-            yesButtonText: 'Watch my Location',
             noButtonText: 'No tracking for me'
           }).then(
             () => {

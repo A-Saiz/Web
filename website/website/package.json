@@ -25,6 +25,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.3.1",
     "install-peers": "^1.0.3",
+    "ng-circle-progress": "^1.5.1",
     "ngx-page-scroll": "^7.0.0",
     "ngx-page-scroll-core": "^7.0.0",
     "rxjs": "^6.5.3",

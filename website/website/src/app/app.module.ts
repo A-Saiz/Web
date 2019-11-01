@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule } from "@angular/material";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from '@angular/core';
+import { NgCircleProgressModule } from "ng-circle-progress";
 import { FormsModule } from "@angular/forms";
 import { NgxPageScrollCoreModule } from "ngx-page-scroll-core";
 import { NgxPageScrollModule } from "ngx-page-scroll";
@@ -49,6 +50,7 @@ import { ConfirmTemplateDirective } from './directives/confirm-template.directiv
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgCircleProgressModule.forRoot(),
     NgxPageScrollCoreModule,
     NgxPageScrollModule,
     BrowserAnimationsModule,
