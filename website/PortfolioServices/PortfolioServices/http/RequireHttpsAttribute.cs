@@ -15,7 +15,7 @@ namespace PortfolioServices.http
             if (actionContext.Request.RequestUri.Scheme != Uri.UriSchemeHttps)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Found);
-                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTP");
+                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTP</p>");
 
                 UriBuilder uriBuilder = new UriBuilder(actionContext.Request.RequestUri);
                 uriBuilder.Scheme = Uri.UriSchemeHttps;

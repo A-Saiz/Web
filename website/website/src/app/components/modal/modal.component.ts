@@ -15,10 +15,12 @@ export class ModalComponent {
     this.options = state.options;
    }
 
+   /**Sets an action or closes a modal */
    yes() {
      this.state.modal.close('confirmed');
    }
 
+   /**Closes modal using (x) on top right of modal */
    close() {
      this.state.modal.dismiss('not confirmed');
    }

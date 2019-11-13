@@ -1,6 +1,7 @@
 <div>
     <div class="button-container">
-        <input class="track-button" type="button" value="{{buttonName}}" (click)="confirmButton()">
+        <input id="trackBtn" class="track-button" type="button" value="{{trackButtonName}}" (click)="trackPositionBtn()">
+        <input id="notTrackingBtn" class="track-button" type="button" value="{{notTrackingButtonName}}" (click)="stopTrackingPositionBtn()">
     </div>
 <ng-container>
     <div *ngIf="show; else noShow" id="map-container" class="map"></div>

@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 export class LinkService {
 
   baseUrl = environment.baseUrl;
-  public LINK_API = `${this.baseUrl}/links`;
+  public LINK_API = `${this.baseUrl}/links/`;
 
   constructor(private http: HttpClient) { }
 
@@ -23,9 +23,9 @@ export class LinkService {
 
   /**
    * Gets a link by id
-   * @param id linkId
+   * @param linkId linkId
    */
-  get(id: number) {
-    return this.http.get(`${this.LINK_API}/${id}`);
+  getLinkById(linkId: number): Observable<Links> {
+    return this.http.get<Links>(`${this.LINK_API}${linkId}`);
   }
 }

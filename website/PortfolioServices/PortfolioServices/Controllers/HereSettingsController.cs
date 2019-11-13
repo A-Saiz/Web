@@ -9,7 +9,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Web.Mvc;
 using PortfolioDataAccess;
 
 namespace PortfolioServices.Controllers
@@ -19,16 +18,14 @@ namespace PortfolioServices.Controllers
         private PortfolioCoreBaseEntities db = new PortfolioCoreBaseEntities();
 
         // GET: api/HereSettings
-        [System.Web.Http.HttpGet]
-        [RequireHttps]
+        [HttpGet]
         public IQueryable<HereSetting> GetHereSettings()
         {
             return db.HereSettings;
         }
 
         // GET: api/HereSettings/5
-        [System.Web.Http.HttpGet]
-        [RequireHttps]
+        [HttpGet]
         public async Task<IHttpActionResult> GetHereSetting(int id)
         {
             HereSetting hereSetting = await db.HereSettings.FindAsync(id);
@@ -41,8 +38,7 @@ namespace PortfolioServices.Controllers
         }
 
         // PUT: api/HereSettings/5
-        [System.Web.Http.HttpPut]
-        [RequireHttps]
+        [HttpPut]
         public async Task<IHttpActionResult> PutHereSetting(int id, HereSetting hereSetting)
         {
             if (!ModelState.IsValid)
@@ -77,8 +73,7 @@ namespace PortfolioServices.Controllers
         }
 
         // POST: api/HereSettings
-        [System.Web.Http.HttpPost]
-        [RequireHttps]
+        [HttpPost]
         public async Task<IHttpActionResult> PostHereSetting(HereSetting hereSetting)
         {
             if (!ModelState.IsValid)
@@ -93,8 +88,7 @@ namespace PortfolioServices.Controllers
         }
 
         // DELETE: api/HereSettings/5
-        [System.Web.Http.HttpDelete]
-        [RequireHttps]
+        [HttpDelete]
         public async Task<IHttpActionResult> DeleteHereSetting(int id)
         {
             HereSetting hereSetting = await db.HereSettings.FindAsync(id);

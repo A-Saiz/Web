@@ -1,9 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
-import MenuItems from 'src/models/menuItems';
+
 import { MenuService } from 'src/services/menu-service.service';
+import { LinkService } from "src/services/link.service";
 import { PageScrollService } from "ngx-page-scroll-core";
 import { ModalService } from 'src/services/modal.service';
+
+import MenuItems from 'src/models/menuItems';
+
+import { Link } from "src/enums/link.enum";
 
 @Component({
   selector: 'app-menu',
@@ -17,21 +22,41 @@ export class MenuComponent implements OnInit {
    */
   menuItems: Array<MenuItems>;
 
+  /**Set link to empty string. */
+  gitHubLink = '';
+
   /**
    * Selected menu item
    */
   selectedItem: string;
 
   constructor(private menuService: MenuService,
-              private pageScrollService: PageScrollService,
-              @Inject(DOCUMENT) private document: any,
-              private modalService: ModalService) { }
+    private linkService: LinkService,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any,
+    private modalService: ModalService) { }
 
   ngOnInit() {
-    this.menuService.getAllMenuItems().subscribe(data => {
-      this.menuItems = data;
-    });
+
+    //Get all menu items on load
+    this.menuService.getAllMenuItems()
+      .subscribe(data => this.menuItems = data,
+        err => this.modalService.openModal({
+          title: `${err.code}`,
+          message: `${err.message}`,
+          buttonText: 'Close'
+        }));
+
+    //Get Github link on  load 
+    this.linkService.getLinkById(Link.githubId)
+      .subscribe(url => this.gitHubLink = url.linkUrl,
+        err => this.modalService.openModal({
+          title: `${err.code}`,
+          message: `${err.message}`,
+          buttonText: 'Close'
+        }));
   }
+
 
   /**
    * Anchor scrolls to section on menuitem click
@@ -66,11 +91,11 @@ export class MenuComponent implements OnInit {
         });
         break;
       default:
-        this.modalService.confirm({
+        this.modalService.openModal({
           image: 'assets/error.png',
           title: 'Ooh no',
           message: 'Sorry, something went wrong with the scroll button, but you can still manually scroll.',
-          yesButtonText: 'Okie Dokie'
+          buttonText: 'Okie Dokie'
         });
         break;
     }

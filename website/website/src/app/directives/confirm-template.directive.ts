@@ -19,7 +19,7 @@ import { ModalSate } from 'src/services/modal.service';
 export class ConfirmTemplateDirective {
 
   constructor(private confirmTemplate: TemplateRef<any>, state: ModalSate) {
-    state.template = confirmTemplate;
+    state.template = this.confirmTemplate;
    }
 
 }

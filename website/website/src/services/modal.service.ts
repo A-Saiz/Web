@@ -16,7 +16,7 @@ export class ModalService {
    * @returns {Promise<any>} a promise that is fulfilled when the user chooses to confirm,
    * and rejected when a user chooses not to confirm, or close the Modal 
    */
-  confirm(options: ModalOptions): Promise<any> {
+  openModal(options: ModalOptions): Promise<any> {
     this.state.options = options;
     this.state.modal = this.modalService.open(this.state.template, {
       scrollable: false,
@@ -37,7 +37,7 @@ export class ModalService {
 export class ModalSate {
 
   /**
-   * The last options passed ModalService.confirm()
+   * The last options passed ModalService.openModal()
    */
   options: ModalOptions;
 

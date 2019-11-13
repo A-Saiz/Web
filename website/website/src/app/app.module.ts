@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule } from "@angular/material";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from '@angular/core';
-import { NgCircleProgressModule } from "ng-circle-progress";
 import { FormsModule } from "@angular/forms";
 import { NgxPageScrollCoreModule } from "ngx-page-scroll-core";
 import { NgxPageScrollModule } from "ngx-page-scroll";
@@ -26,6 +25,7 @@ import { LinkService } from "../services/link.service";
 import { MenuService } from "../services/menu-service.service";
 import { ModalService, ModalSate } from 'src/services/modal.service';
 import { NewsApiService } from 'src/services/news-api.service';
+import { HereService } from "src/services/here.service";
 
 import { HttpErrorInterceptor } from "../errors/http-error-interceptor";
 import { ConfirmTemplateDirective } from './directives/confirm-template.directive';
@@ -50,7 +50,6 @@ import { ConfirmTemplateDirective } from './directives/confirm-template.directiv
     HttpClientModule,
     FormsModule,
     NgbModule,
-    NgCircleProgressModule.forRoot(),
     NgxPageScrollCoreModule,
     NgxPageScrollModule,
     BrowserAnimationsModule,
@@ -67,7 +66,7 @@ import { ConfirmTemplateDirective } from './directives/confirm-template.directiv
     NewsApiService,
     ModalService,
     ModalSate,
-    HereComponent,
+    HereService,
     AboutPageImagesService,
     LinkService,
     MenuService,

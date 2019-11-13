@@ -20,11 +20,5 @@ export interface ModalOptions {
      /**
       * Modal button text for confirming
       */
-     yesButtonText?: string;
-
-     /**
-      * Modal button text for not confirming
-      */
-
-    noButtonText?: string;
+     buttonText?: string;
 }

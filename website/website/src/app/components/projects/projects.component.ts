@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HereComponent } from '../here/here.component';
 
 @Component({
   selector: 'app-projects',

@@ -23,16 +23,16 @@ namespace PortfolioServices
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-               name: "DefaultApiWithAction",
-               routeTemplate: "api/{controller}/{action}/{id}",
-               defaults: new { id = RouteParameter.Optional }
-           );
-
-            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+               name: "DefaultApiWithAction",
+               routeTemplate: "api/{controller}/{action}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+           );
 
             //Enable CORS for Front end Angular app
             var cors = new EnableCorsAttribute(origins: "https://localhost:4200", headers: "*", methods: "*");

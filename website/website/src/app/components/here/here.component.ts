@@ -1,9 +1,12 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+
 import { ModalService } from 'src/services/modal.service';
 import { ScriptLoaderService } from 'src/services/script-loader.service';
-//import { url } from 'inspector';
+import { HereService } from 'src/services/here.service';
 
-//H = Here api
+import { Here } from "src/enums/here.enum";
+
+/**Access to HereApi */
 declare var H: any;
 
 @Component({
@@ -17,51 +20,96 @@ export class HereComponent implements OnInit {
 
   public zoom: number = 10;
 
-  public appId: string = "CLQnccnmD03JEEiO57PO";
+  //Set App ID to empty string
+  appId = '';
 
-  public appCode: string = "liwyUE1ETkTTU4SyRTGeqw";
+  //Set App Code to empty string
+  appCode = '';
 
   public show: boolean = false;
-  public buttonName: string = "Track";
+  public trackButtonName: string = "Track";
+  public notTrackingButtonName: string = "Not Tracking";
 
   public watchId: any;
 
-  constructor(private modalService: ModalService, private scriptLoader: ScriptLoaderService) {
-  }
+  constructor(private modalService: ModalService,
+    private scriptLoader: ScriptLoaderService,
+    private hereService: HereService, ) { }
 
-  //Confirm button to get user position
-  confirmButton() {
+  /**
+   * onClick to track user position
+   */
+  trackPositionBtn() {
     this.show = !this.show;
 
     if (this.show) {
-      // document.getElementById('btn').style.visibility = 'hidden';
 
-      this.modalService.confirm({
+      this.modalService.openModal({
         title: 'Confirm to see Here map',
         message: 'By confirming you allow this site to track your position',
-        yesButtonText: 'Watch my Location',
-        noButtonText: 'No tracking for me'
+        buttonText: 'Watch my Location'
       }).then(
         () => {
-          this.buttonName = "Tracking";
+          this.trackButtonName = 'Tracking';
           this.trackUserPosition();
+          this.changeButtonAttributes('trackBtn', 'notTrackingBtn');
         },
         () => {
-          this.modalService.confirm({
-            title: 'Confirm to see Here map',
-            message: 'You can enable tracking at any time',
-            noButtonText: 'No tracking for me'
-          }).then(
-            () => {
-              this.buttonName = "Not Tracking";
-              this.stopWatchingUserPosition();
-            }
-          );
+          this.modalService.openModal({
+            title: 'Don\'t worry your location is secure.',
+            message: 'You can enable tracking at any time.',
+            buttonText: 'Close'
+          });
         }
-      );
+      )
     }
   }
 
+  /**
+   * onClick to stop tracking user position
+   */
+  stopTrackingPositionBtn() {
+    if (this.show) {
+
+      this.modalService.openModal({
+        title: 'Confirm to stop tracking',
+        message: 'You can enable tracking at any time',
+        buttonText: 'Don\'t watch my Location'
+      }).then(
+        () => {
+          this.trackButtonName = 'Track';
+          this.stopWatchingUserPosition();
+          this.changeButtonAttributes('notTrackingBtn', 'trackBtn');
+          this.clearContainer('map-container');
+        },
+        (error) => {
+          this.modalService.openModal({
+            image: 'assets/error.png',
+            title: 'There was an error',
+            message: `${error}`,
+            buttonText: 'Close'
+          });
+        }
+      )
+    }
+  }
+
+  /**
+   * Changes button onClick to set attribute and style
+   * @param buttonToDisable Button to disable
+   * @param buttonToEnable Button to enable
+   */
+  changeButtonAttributes(buttonToDisable: string, buttonToEnable: string) {
+    document.getElementById(buttonToDisable).setAttribute('disabled', 'disabled');
+    document.getElementById(buttonToDisable).style.opacity = '0.2';
+
+    document.getElementById(buttonToEnable).removeAttribute('disabled');
+    document.getElementById(buttonToEnable).style.opacity = '1';
+  }
+
+  /**
+   * Gets user location and sends it to HereApi to display their position
+   */
   trackUserPosition() {
     var platform = new H.service.Platform({
       useCIT: true,
@@ -98,14 +146,50 @@ export class HereComponent implements OnInit {
     this.watchId = navigator.geolocation.watchPosition(updatePosition);
   }
 
+  /**
+   * Stops watching user position on tracking button click
+   */
   stopWatchingUserPosition() {
     navigator.geolocation.clearWatch(this.watchId);
   }
 
-  ngOnInit() {
-    this.loadScripts();
+  /**
+   * Clears an html element
+   * @param elementId Element to clear
+   */
+  clearContainer(elementId: string) {
+    document.getElementById(elementId).innerHTML = '';
   }
 
+  ngOnInit() {
+    this.loadScripts();
+
+   /**
+   * Gets Here app code needed to initialize HereApi
+   */
+    this.hereService.getSettingById(Here.appCodeId)
+      .subscribe(code => this.appCode = code.stringValue,
+        err => this.modalService.openModal({
+          title: `${err.code}`,
+          message: `${err.error.message}`,
+          buttonText: 'Close'
+        }));
+
+   /**
+   * Gets Here app id needed to initialize HereApi
+   */
+    this.hereService.getSettingById(Here.appId_ID)
+      .subscribe(id => this.appId = id.stringValue,
+        err => this.modalService.openModal({
+          title: `${err.code}`,
+          message: `${err.error.message}`,
+          buttonText: 'Close'
+        }));
+  }
+
+  /**
+   * Load scripts when Here component is initialized instead of when website loads
+   */
   private loadScripts() {
     this.scriptLoader.load('mapsjs-corejs', 'mapsjs-servicejs', 'mapsjs-servicejs', 'mapsjs-mapeventsjs').then(data => { }).catch(error => console.log(error));
   }
