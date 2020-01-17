@@ -6,6 +6,31 @@
     h1 {
         @include section-header;
     }
+
+    .about-content {
+        max-width: 85%;
+        margin: auto;
+        padding: 80px 8%;
+    }
+
+    h2 {
+        font-size: 50px;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+        white-space: pre-wrap;
+        margin: 0 auto;
+    }
+
+    .block-content {
+        font-size: 16px !important;
+        text-align: left;
+        line-height: 40px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        letter-spacing: 0.2em;
+        margin: 20px;
+    }
 }
 
 #caption {
@@ -15,6 +40,7 @@
         font-size: 30px;
         font-weight: 100;
         border-bottom: 2px solid aquamarine;
+        margin-bottom: 50px !important;
     }
 }
 

@@ -114,9 +114,6 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="PortfolioDataModel.edmx.diagram">
-      <DependentUpon>PortfolioDataModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PortfolioDataModel.Context.tt">

@@ -1,37 +1,57 @@
 <div class="contact-container" id="#contact-section">
-    <div>
-      <h1>Contact Me</h1>
+  <div>
+    <h1>Contact Me</h1>
+    <img src="assets/me11220.jpg" alt="me">
+    <h2 class="introText">I am happy to answer any questions you might have.
+      Fill out the form an I will be in touch as soon as possible.
+    </h2>
+    <div class="container-lg">
+      <div class="form-column">
+        <div class="form-container">
+          <form>
+            <fieldset>
+              <div class="form-row text firstname">
+                <label class="firstname" for="firstname">First name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="John" required>
+              </div>
+              <div class="form-row text lastname">
+                <label class="lastname" for="lastname">Last name</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Doe" required>
+              </div>
+              <div class="form-row text email">
+                <label id="email" for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="john.doe@example.com" required>
+              </div>
+              <div class="form-row text website">
+                <label class="website" for="website">Website (if applicable)</label>
+                <input type="text" name="website" id="website" placeholder="example.com">
+              </div>
+              <div class="form-row textarea">
+                <label for="message">What would you like to ask me?</label>
+                <textarea name="message" id="message" required placeholder="Tell me more..."></textarea>
+              </div>
+            </fieldset>
+            <div class="submit-row">
+              <div class="error">
+                <span>
+                  "Something went wrong on my end. Sorry about that. You can still contact me at "
+                  <a href="mailto:saiz7555@gmail.com" class="email-link">saiz7555@gmail.com</a>
+                </span>
+              </div>
+              <input type="submit" class="submit-button" value="Contact Me">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="secondary-column">
+        <div class="social-media">
+          <p class="copy-1">You're in good company.</p>
+          <p class="copy-2">Join me on Social media.</p>
+          <ul class="social-media-logos">
+            <li class="logo"></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  <form class="contact" (ngSubmit)="processForm()">
-    <div class="name-input">
-      <p> To: saiz7555@gmail</p>
-    </div>
-    <div class="email-input">
-      From:
-      <input type="email" 
-             name="email" 
-             class="input"
-              placeholder="Email" 
-              [(ngModel)]="email"
-              required 
-              email
-              #emailInput="ngModel"/>
-    </div>
-    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
-      Please enter a valid email.
-    </div>
-    <div class="message-input">
-      <textarea class="textarea" 
-                name="message" 
-                placeholder="What you talking about Willis" 
-                [(ngModel)]="message"
-                required
-                #messageInput="ngModel">
-      </textarea>
-    </div>
-    <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
-      Please enter a message so I can respond with an answer.
-    </div>
-    <button type="submit" class="button is-danger is-large">Submit</button>
-  </form>
+  </div>
 </div>

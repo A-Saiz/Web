@@ -7,7 +7,54 @@
         @include section-header;
     }
 
-    .progress {
-        background-color: transparent !important;
+    .about-content {
+        max-width: 85%;
+        margin: auto;
+        padding: 100px 8%;
     }
+
+    h2 {
+        font-size: 50px;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+        white-space: pre-wrap;
+        margin: 0 auto;
+    }
+
+    .block-content {
+        font-size: 16px !important;
+        text-align: left;
+        line-height: 40px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        letter-spacing: 0.2em;
+        margin: 20px;
+    }
+
+    .mission-block-content {
+        font-size: 18px !important;
+        text-align: center;
+        line-height: 40px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        letter-spacing: 0.2em;
+        margin: 35px;
+        color: #fff;
+    }
+
+    .mission-content {
+        background: #000;
+        margin: auto;
+        padding: 100px 5%;
+
+        h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    }
+
+    // @include image-container(hobbie-container);
+    // @include image-container(artwork-container);
+    // @include image-container(family-container);
 }

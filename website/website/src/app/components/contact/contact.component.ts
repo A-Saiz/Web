@@ -7,16 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  email: string;
-  message: string;
-
   constructor() { }
 
   ngOnInit() {
-  }
-
-  processForm() {
-    alert(`My email is ${this.email} and the message is ${this.message}`);
   }
 
 }

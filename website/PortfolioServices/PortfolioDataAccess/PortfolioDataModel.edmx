@@ -39,6 +39,9 @@
           <Property Name="StringValue" Type="varchar" MaxLength="15" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="findImagesByTypeName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="typeName" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="PortfolioCoreBaseModelStoreContainer">
           <EntitySet Name="AboutPageImages" EntityType="Self.AboutPageImages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HereSettings" EntityType="Self.HereSettings" Schema="dbo" store:Type="Tables" />
@@ -70,6 +73,9 @@
           <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
           <EntitySet Name="AboutPageImages" EntityType="PortfolioCoreBaseModel.AboutPageImage" />
           <EntitySet Name="HereSettings" EntityType="PortfolioCoreBaseModel.HereSetting" />
+          <FunctionImport Name="findImagesByTypeName" ReturnType="Collection(Binary)">
+            <Parameter Name="typeName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="AboutPageImage">
           <Key>
@@ -133,6 +139,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="findImagesByTypeName" FunctionName="PortfolioCoreBaseModel.Store.findImagesByTypeName" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -154,6 +161,13 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="c3601c691ec34091ab74116fe7c42882" Name="Diagram1">
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.Link" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.MenuItem" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.AboutPageImage" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortfolioCoreBaseModel.HereSetting" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>

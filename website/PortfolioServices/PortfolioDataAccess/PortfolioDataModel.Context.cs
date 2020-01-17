@@ -12,6 +12,8 @@ namespace PortfolioDataAccess
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PortfolioCoreBaseEntities : DbContext
     {
@@ -29,5 +31,14 @@ namespace PortfolioDataAccess
         public virtual DbSet<MenuItem> MenuItems { get; set; }
         public virtual DbSet<AboutPageImage> AboutPageImages { get; set; }
         public virtual DbSet<HereSetting> HereSettings { get; set; }
+    
+        public virtual ObjectResult<byte[]> findImagesByTypeName(string typeName)
+        {
+            var typeNameParameter = typeName != null ?
+                new ObjectParameter("typeName", typeName) :
+                new ObjectParameter("typeName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("findImagesByTypeName", typeNameParameter);
+        }
     }
 }

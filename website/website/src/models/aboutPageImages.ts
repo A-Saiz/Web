@@ -1,7 +1,7 @@
 export default class AboutPageImages {
-    id: number;
-    description: string;
-    url: string;
+    imageId: number;
+    imageName: string;
+    imageUrl: string;
     typeId: number;
     typeName: string;
 }

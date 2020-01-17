@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import AboutPageImages from 'src/models/aboutPageImages';
 
@@ -10,11 +10,15 @@ import AboutPageImages from 'src/models/aboutPageImages';
 export class AboutPageImagesService {
 
   baseUrl = environment.baseUrl;
-  public IMAGE_API = `${this.baseUrl}/aboutPageImages`;
+  public IMAGE_API = `${this.baseUrl}/aboutPageImages/`;
 
   constructor(private http: HttpClient) { }
 
-  getImage(imageUrl: string): Observable<Blob> {
-    return this.http.get(imageUrl, {responseType: 'blob'});
+  getImageById(imageId: number): Observable<AboutPageImages> {
+    return this.http.get<AboutPageImages>(`${this.IMAGE_API}${imageId}`);
+  }
+
+  getImageByName(typeName: string): Observable<Array<AboutPageImages>> {
+    return this.http.get<Array<AboutPageImages>>(`${this.IMAGE_API}?typeName=${typeName}`);
   }
 }

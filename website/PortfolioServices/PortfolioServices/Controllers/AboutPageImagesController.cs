@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -34,6 +35,23 @@ namespace PortfolioServices.Controllers
             }
 
             return Ok(aboutPageImage);
+        }
+
+        //GET: api/AboutPageImages?typeName="typename"
+        [HttpGet]
+        public List<AboutPageImage> GetAboutPageImageByTypeName(string typeName)
+        {
+            List<AboutPageImage> images = new List<AboutPageImage>();
+            var results = db.findImagesByTypeName(typeName).ToList();
+            foreach(var result in results)
+            {
+                var image = new AboutPageImage()
+                {
+                    imageUrl = result
+                };
+                images.Add(image);
+            }
+            return images;
         }
 
         // PUT: api/AboutPageImages/5
